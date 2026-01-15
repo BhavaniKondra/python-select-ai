@@ -177,7 +177,7 @@ class Agent(BaseAgent):
         """
         Disable AI Agent
         """
-        with cursor as cr:
+        with cursor() as cr:
             cr.callproc(
                 "DBMS_CLOUD_AI_AGENT.DISABLE_AGENT",
                 keyword_parameters={
@@ -189,7 +189,7 @@ class Agent(BaseAgent):
         """
         Enable AI Agent
         """
-        with cursor as cr:
+        with cursor() as cr:
             cr.callproc(
                 "DBMS_CLOUD_AI_AGENT.ENABLE_AGENT",
                 keyword_parameters={
@@ -394,7 +394,7 @@ class AsyncAgent(BaseAgent):
         """
         Disable AI Agent
         """
-        async with async_cursor as cr:
+        async with async_cursor() as cr:
             await cr.callproc(
                 "DBMS_CLOUD_AI_AGENT.DISABLE_AGENT",
                 keyword_parameters={
@@ -406,7 +406,7 @@ class AsyncAgent(BaseAgent):
         """
         Enable AI Agent
         """
-        async with async_cursor as cr:
+        async with async_cursor() as cr:
             await cr.callproc(
                 "DBMS_CLOUD_AI_AGENT.ENABLE_AGENT",
                 keyword_parameters={
