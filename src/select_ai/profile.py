@@ -17,7 +17,7 @@ from select_ai.action import Action
 from select_ai.base_profile import (
     BaseProfile,
     ProfileAttributes,
-    no_data_for_prompt,
+    convert_json_rows_to_df,
     validate_params_for_feedback,
     validate_params_for_summary,
 )
@@ -399,9 +399,7 @@ class Profile(BaseProfile):
         else:
             result = None
         if action == Action.RUNSQL:
-            if no_data_for_prompt(result):  # empty dataframe
-                return pandas.DataFrame()
-            return pandas.DataFrame(json.loads(result))
+            return convert_json_rows_to_df(result)
         else:
             return result
 
