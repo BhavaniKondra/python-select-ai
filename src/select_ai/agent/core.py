@@ -1,4 +1,4 @@
-# ------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # Copyright (c) 2025, Oracle and/or its affiliates.
 #
 # Licensed under the Universal Permissive License v 1.0 as shown at
@@ -172,6 +172,18 @@ class Agent(BaseAgent):
                     "force": force,
                 },
             )
+
+    @classmethod
+    def delete_agent(cls, agent_name: str, force: Optional[bool] = False):
+        """
+        Class method to delete AI Agent from the database
+
+        :param str agent_name: The name of the AI Agent
+        :param bool force: Force the deletion. Default value is False.
+
+        """
+        agent = cls(agent_name=agent_name)
+        agent.delete(force=force)
 
     def disable(self):
         """
@@ -389,6 +401,20 @@ class AsyncAgent(BaseAgent):
                     "force": force,
                 },
             )
+
+    @classmethod
+    async def delete_agent(
+        cls, agent_name: str, force: Optional[bool] = False
+    ):
+        """
+        Class method to delete AI Agent from the database
+
+        :param str agent_name: The name of the AI Agent
+        :param bool force: Force the deletion. Default value is False.
+
+        """
+        agent = cls(agent_name=agent_name)
+        await agent.delete(force=force)
 
     async def disable(self):
         """

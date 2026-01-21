@@ -595,6 +595,17 @@ class Tool(_BaseTool):
                 },
             )
 
+    @classmethod
+    def delete_tool(cls, tool_name: str, force: bool = False):
+        """
+        Class method to delete AI Tool from the database
+
+        :param str tool_name: The name of the tool
+        :param bool force: Force the deletion. Default value is False.
+        """
+        tool = cls(tool_name=tool_name)
+        tool.delete(force=force)
+
     def disable(self):
         """
         Disable AI Tool
@@ -1028,6 +1039,17 @@ class AsyncTool(_BaseTool):
                     "force": force,
                 },
             )
+
+    @classmethod
+    async def delete_tool(cls, tool_name: str, force: bool = False):
+        """
+        Class method ot delete AI Tool from the database
+
+        :param str tool_name: The name of the tool
+        :param bool force: Force the deletion. Default value is False.
+        """
+        tool = cls(tool_name=tool_name)
+        await tool.delete(force=force)
 
     async def disable(self):
         """

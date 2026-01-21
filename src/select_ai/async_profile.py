@@ -248,22 +248,39 @@ class AsyncProfile(BaseProfile):
                 else:
                     raise
 
+    @staticmethod
+    async def _delete(profile_name: str, force: bool = False):
+        """
+        Internal method to delete AI profile from the database
+        """
+        async with async_cursor() as cr:
+            await cr.callproc(
+                "DBMS_CLOUD_AI.DROP_PROFILE",
+                keyword_parameters={
+                    "profile_name": profile_name,
+                    "force": force,
+                },
+            )
+
     async def delete(self, force=False) -> None:
         """Asynchronously deletes an AI profile from the database
 
         :param bool force: Ignores errors if AI profile does not exist.
         :return: None
         :raises: oracledb.DatabaseError
-
         """
-        async with async_cursor() as cr:
-            await cr.callproc(
-                "DBMS_CLOUD_AI.DROP_PROFILE",
-                keyword_parameters={
-                    "profile_name": self.profile_name,
-                    "force": force,
-                },
-            )
+        await self._delete(profile_name=self.profile_name, force=force)
+
+    @classmethod
+    async def delete_profile(cls, profile_name: str, force: bool = False):
+        """Asynchronously deletes an AI profile from the database
+
+        :param str profile_name: Name of the AI profile
+        :param bool force: Ignores errors if AI profile does not exist.
+        :return: None
+        :raises: oracledb.DatabaseError
+        """
+        await cls._delete(profile_name=profile_name, force=force)
 
     @classmethod
     async def fetch(cls, profile_name: str) -> "AsyncProfile":
