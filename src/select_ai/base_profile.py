@@ -267,7 +267,7 @@ def validate_params_for_feedback(
             )
         sql_text = "select ai {} {}".format(action, prompt)
         parameters["sql_text"] = sql_text
-    elif sql_id:
+    if sql_id:
         parameters["sql_id"] = sql_id
     return parameters
 
