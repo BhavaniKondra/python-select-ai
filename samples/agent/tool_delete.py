@@ -21,4 +21,4 @@ dsn = os.getenv("SELECT_AI_DB_CONNECT_STRING")
 
 select_ai.connect(user=user, password=password, dsn=dsn)
 
-tool = select_ai.agent.Tool.delete_tool("LLM_CHAT_TOOL", force=True)
+select_ai.agent.Tool.delete_tool("LLM_CHAT_TOOL", force=True)
