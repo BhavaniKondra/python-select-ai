@@ -5,14 +5,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1. VectorIndex Object Model &#8212; Select AI for Python 1.2.1 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. VectorIndex Object Model &#8212; Select AI for Python 1.2.2 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=67a6116b" />
     <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=4eb63a40" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=5349f25f" />
 
-    <script src="../_static/documentation_options.js?v=ca842793"></script>
+    <script src="../_static/documentation_options.js?v=fd7cadf9"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
 
@@ -76,6 +76,7 @@
 <li><a class="reference internal" href="#select_ai.VectorIndex"><code class="docutils literal notranslate"><span class="pre">VectorIndex</span></code></a><ul>
 <li><a class="reference internal" href="#select_ai.VectorIndex.create"><code class="docutils literal notranslate"><span class="pre">VectorIndex.create()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.VectorIndex.delete"><code class="docutils literal notranslate"><span class="pre">VectorIndex.delete()</span></code></a></li>
+<li><a class="reference internal" href="#select_ai.VectorIndex.delete_index"><code class="docutils literal notranslate"><span class="pre">VectorIndex.delete_index()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.VectorIndex.disable"><code class="docutils literal notranslate"><span class="pre">VectorIndex.disable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.VectorIndex.enable"><code class="docutils literal notranslate"><span class="pre">VectorIndex.enable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.VectorIndex.fetch"><code class="docutils literal notranslate"><span class="pre">VectorIndex.fetch()</span></code></a></li>
@@ -98,6 +99,7 @@
 <li><a class="reference internal" href="#select_ai.AsyncVectorIndex"><code class="docutils literal notranslate"><span class="pre">AsyncVectorIndex</span></code></a><ul>
 <li><a class="reference internal" href="#select_ai.AsyncVectorIndex.create"><code class="docutils literal notranslate"><span class="pre">AsyncVectorIndex.create()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.AsyncVectorIndex.delete"><code class="docutils literal notranslate"><span class="pre">AsyncVectorIndex.delete()</span></code></a></li>
+<li><a class="reference internal" href="#select_ai.AsyncVectorIndex.delete_index"><code class="docutils literal notranslate"><span class="pre">AsyncVectorIndex.delete_index()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.AsyncVectorIndex.disable"><code class="docutils literal notranslate"><span class="pre">AsyncVectorIndex.disable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.AsyncVectorIndex.enable"><code class="docutils literal notranslate"><span class="pre">AsyncVectorIndex.enable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.AsyncVectorIndex.fetch"><code class="docutils literal notranslate"><span class="pre">AsyncVectorIndex.fetch()</span></code></a></li>
@@ -169,7 +171,7 @@
           </li>
           <li>
 
-              <a href="../index.html">Select AI for Python 1.2.1 documentation</a> &#187;
+              <a href="../index.html">Select AI for Python 1.2.2 documentation</a> &#187;
 
           </li>
         <li class="nav-item nav-item-this"><a href=""><span class="section-number">1. </span><code class="docutils literal notranslate"><span class="pre">VectorIndex</span></code> Object Model</a></li>
@@ -305,6 +307,30 @@ to store vector embeddings and chunked data</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>include_data</strong> (<em>bool</em>) – Indicates whether to delete
+both the customer’s vector store and vector index
+along with the vector index object</p></li>
+<li><p><strong>force</strong> (<em>bool</em>) – Indicates whether to ignore errors
+that occur if the vector index does not exist</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>oracledb.DatabaseError</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="select_ai.VectorIndex.delete_index">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#select_ai.VectorIndex.delete_index" title="Link to this definition">¶</a></dt>
+<dd><p>Class method to remove a vector store index</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index_name</strong> (<em>str</em>) – The name of the vector index</p></li>
 <li><p><strong>include_data</strong> (<em>bool</em>) – Indicates whether to delete
 both the customer’s vector store and vector index
 along with the vector index object</p></li>
@@ -699,6 +725,30 @@ that occur if the vector index does not exist.</p></li>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="select_ai.AsyncVectorIndex.delete_index">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#select_ai.AsyncVectorIndex.delete_index" title="Link to this definition">¶</a></dt>
+<dd><p>Class method to remove a vector store index</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index_name</strong> (<em>str</em>) – The name of the vector index</p></li>
+<li><p><strong>include_data</strong> (<em>bool</em>) – Indicates whether to delete
+both the customer’s vector store and vector index
+along with the vector index object</p></li>
+<li><p><strong>force</strong> (<em>bool</em>) – Indicates whether to ignore errors
+that occur if the vector index does not exist</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>oracledb.DatabaseError</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="select_ai.AsyncVectorIndex.disable">
 <em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">disable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#select_ai.AsyncVectorIndex.disable" title="Link to this definition">¶</a></dt>
 <dd><p>This procedure disables a vector index object in the current
@@ -1051,6 +1101,7 @@ the class method <code class="docutils literal notranslate"><span class="pre">As
 <li><a class="reference internal" href="#select_ai.VectorIndex"><code class="docutils literal notranslate"><span class="pre">VectorIndex</span></code></a><ul>
 <li><a class="reference internal" href="#select_ai.VectorIndex.create"><code class="docutils literal notranslate"><span class="pre">VectorIndex.create()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.VectorIndex.delete"><code class="docutils literal notranslate"><span class="pre">VectorIndex.delete()</span></code></a></li>
+<li><a class="reference internal" href="#select_ai.VectorIndex.delete_index"><code class="docutils literal notranslate"><span class="pre">VectorIndex.delete_index()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.VectorIndex.disable"><code class="docutils literal notranslate"><span class="pre">VectorIndex.disable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.VectorIndex.enable"><code class="docutils literal notranslate"><span class="pre">VectorIndex.enable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.VectorIndex.fetch"><code class="docutils literal notranslate"><span class="pre">VectorIndex.fetch()</span></code></a></li>
@@ -1073,6 +1124,7 @@ the class method <code class="docutils literal notranslate"><span class="pre">As
 <li><a class="reference internal" href="#select_ai.AsyncVectorIndex"><code class="docutils literal notranslate"><span class="pre">AsyncVectorIndex</span></code></a><ul>
 <li><a class="reference internal" href="#select_ai.AsyncVectorIndex.create"><code class="docutils literal notranslate"><span class="pre">AsyncVectorIndex.create()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.AsyncVectorIndex.delete"><code class="docutils literal notranslate"><span class="pre">AsyncVectorIndex.delete()</span></code></a></li>
+<li><a class="reference internal" href="#select_ai.AsyncVectorIndex.delete_index"><code class="docutils literal notranslate"><span class="pre">AsyncVectorIndex.delete_index()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.AsyncVectorIndex.disable"><code class="docutils literal notranslate"><span class="pre">AsyncVectorIndex.disable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.AsyncVectorIndex.enable"><code class="docutils literal notranslate"><span class="pre">AsyncVectorIndex.enable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.AsyncVectorIndex.fetch"><code class="docutils literal notranslate"><span class="pre">AsyncVectorIndex.fetch()</span></code></a></li>
@@ -1144,7 +1196,7 @@ the class method <code class="docutils literal notranslate"><span class="pre">As
           </li>
           <li>
 
-              <a href="../index.html">Select AI for Python 1.2.1 documentation</a> &#187;
+              <a href="../index.html">Select AI for Python 1.2.2 documentation</a> &#187;
 
           </li>
         <li class="nav-item nav-item-this"><a href=""><span class="section-number">1. </span><code class="docutils literal notranslate"><span class="pre">VectorIndex</span></code> Object Model</a></li>

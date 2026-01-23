@@ -3,6 +3,49 @@
 ``select_ai.agent`` also provides async interfaces to be used with
 ``async`` / ``await`` keywords
 
+
+.. list-table:: Select AI Async Agent Tools
+    :header-rows: 1
+    :widths: 20 50 30
+    :align: left
+
+    * - Tool Type
+      - AsyncTool Class Method
+      - Arguments
+    * - ``EMAIL``
+      - ``select_ai.agent.AsyncTool.create_email_notification_tool``
+      -  - ``tool_name``
+         - ``credential_name``
+         - ``recipient``
+         - ``sender``
+         - ``smtp_host``
+    * - ``HTTP``
+      - ``select_ai.agent.AsyncTool.create_http_tool``
+      - - ``tool_name``
+        - ``credential_name``
+        - ``endpoint``
+    * - ``SQL``
+      - ``select_ai.agent.AsyncTool.create_sql_tool``
+      - - ``tool_name``
+        - ``profile_name``
+    * - ``SLACK``
+      - ``select_ai.agent.AsyncTool.create_slack_notification_tool``
+      - - ``tool_name``
+        - ``credential_name``
+        - ``slack_channel``
+    * - ``WEBSEARCH``
+      - ``select_ai.agent.AsyncTool.create_websearch_tool``
+      - - ``tool_name``
+        - ``credential_name``
+    * - ``PL/SQL custom tool``
+      - ``select_ai.agent.AsyncTool.create_pl_sql_tool``
+      - - ``tool_name``
+        - ``function``
+    * - ``RAG``
+      - ``select_ai.agent.AsyncTool.create_rag_tool``
+      - - ``tool_name``
+        - ``profile_name``
+
 *************
 ``AsyncTool``
 *************
