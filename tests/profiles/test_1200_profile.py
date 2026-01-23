@@ -35,7 +35,9 @@ def python_gen_ai_profile(profile_attributes):
     )
     yield profile
     logger.info("Deleting profile %s", profile.profile_name)
-    profile.delete(force=True)
+    select_ai.Profile.delete_profile(
+        profile_name=PYSAI_1200_PROFILE, force=True
+    )
 
 
 @pytest.fixture(scope="module")

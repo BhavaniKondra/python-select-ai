@@ -18,5 +18,4 @@ password = os.getenv("SELECT_AI_PASSWORD")
 dsn = os.getenv("SELECT_AI_DB_CONNECT_STRING")
 
 select_ai.connect(user=user, password=password, dsn=dsn)
-profile = select_ai.Profile(profile_name="oci_ai_profile")
-profile.delete()
+profile = select_ai.Profile.delete_profile(profile_name="oci_ai_profile")

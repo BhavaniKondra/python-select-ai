@@ -1,4 +1,4 @@
-# ------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # Copyright (c) 2025, Oracle and/or its affiliates.
 #
 # Licensed under the Universal Permissive License v 1.0 as shown at
@@ -173,11 +173,23 @@ class Agent(BaseAgent):
                 },
             )
 
+    @classmethod
+    def delete_agent(cls, agent_name: str, force: Optional[bool] = False):
+        """
+        Class method to delete AI Agent from the database
+
+        :param str agent_name: The name of the AI Agent
+        :param bool force: Force the deletion. Default value is False.
+
+        """
+        agent = cls(agent_name=agent_name)
+        agent.delete(force=force)
+
     def disable(self):
         """
         Disable AI Agent
         """
-        with cursor as cr:
+        with cursor() as cr:
             cr.callproc(
                 "DBMS_CLOUD_AI_AGENT.DISABLE_AGENT",
                 keyword_parameters={
@@ -189,7 +201,7 @@ class Agent(BaseAgent):
         """
         Enable AI Agent
         """
-        with cursor as cr:
+        with cursor() as cr:
             cr.callproc(
                 "DBMS_CLOUD_AI_AGENT.ENABLE_AGENT",
                 keyword_parameters={
@@ -390,11 +402,25 @@ class AsyncAgent(BaseAgent):
                 },
             )
 
+    @classmethod
+    async def delete_agent(
+        cls, agent_name: str, force: Optional[bool] = False
+    ):
+        """
+        Class method to delete AI Agent from the database
+
+        :param str agent_name: The name of the AI Agent
+        :param bool force: Force the deletion. Default value is False.
+
+        """
+        agent = cls(agent_name=agent_name)
+        await agent.delete(force=force)
+
     async def disable(self):
         """
         Disable AI Agent
         """
-        async with async_cursor as cr:
+        async with async_cursor() as cr:
             await cr.callproc(
                 "DBMS_CLOUD_AI_AGENT.DISABLE_AGENT",
                 keyword_parameters={
@@ -406,7 +432,7 @@ class AsyncAgent(BaseAgent):
         """
         Enable AI Agent
         """
-        async with async_cursor as cr:
+        async with async_cursor() as cr:
             await cr.callproc(
                 "DBMS_CLOUD_AI_AGENT.ENABLE_AGENT",
                 keyword_parameters={

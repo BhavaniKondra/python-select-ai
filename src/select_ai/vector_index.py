@@ -231,6 +231,24 @@ class VectorIndex(_BaseVectorIndex):
                     raise
         self.profile.set_attribute("vector_index_name", self.index_name)
 
+    @classmethod
+    def delete_index(
+        cls, index_name: str, include_data: bool = True, force: bool = False
+    ):
+        """Class method to remove a vector store index
+
+        :param str index_name: The name of the vector index
+        :param bool include_data: Indicates whether to delete
+         both the customer's vector store and vector index
+         along with the vector index object
+        :param bool force: Indicates whether to ignore errors
+         that occur if the vector index does not exist
+        :return: None
+        :raises: oracledb.DatabaseError
+        """
+        index = cls(index_name=index_name)
+        index.delete(force=force, include_data=include_data)
+
     def delete(
         self,
         include_data: Optional[bool] = True,
@@ -536,6 +554,24 @@ class AsyncVectorIndex(_BaseVectorIndex):
                     "force": force,
                 },
             )
+
+    @classmethod
+    async def delete_index(
+        cls, index_name: str, include_data: bool = True, force: bool = False
+    ):
+        """Class method to remove a vector store index
+
+        :param str index_name: The name of the vector index
+        :param bool include_data: Indicates whether to delete
+         both the customer's vector store and vector index
+         along with the vector index object
+        :param bool force: Indicates whether to ignore errors
+         that occur if the vector index does not exist
+        :return: None
+        :raises: oracledb.DatabaseError
+        """
+        index = cls(index_name=index_name)
+        await index.delete(force=force, include_data=include_data)
 
     async def enable(self) -> None:
         """This procedure enables or activates a previously disabled vector

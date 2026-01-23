@@ -17,7 +17,7 @@ from select_ai.action import Action
 from select_ai.base_profile import (
     BaseProfile,
     ProfileAttributes,
-    no_data_for_prompt,
+    convert_json_rows_to_df,
     validate_params_for_feedback,
     validate_params_for_summary,
 )
@@ -227,6 +227,17 @@ class Profile(BaseProfile):
                 else:
                     raise
 
+    @staticmethod
+    def _delete(profile_name: str, force: bool = False):
+        with cursor() as cr:
+            cr.callproc(
+                "DBMS_CLOUD_AI.DROP_PROFILE",
+                keyword_parameters={
+                    "profile_name": profile_name,
+                    "force": force,
+                },
+            )
+
     def delete(self, force=False) -> None:
         """Deletes an AI profile from the database
 
@@ -234,14 +245,18 @@ class Profile(BaseProfile):
         :return: None
         :raises: oracledb.DatabaseError
         """
-        with cursor() as cr:
-            cr.callproc(
-                "DBMS_CLOUD_AI.DROP_PROFILE",
-                keyword_parameters={
-                    "profile_name": self.profile_name,
-                    "force": force,
-                },
-            )
+        self._delete(profile_name=self.profile_name, force=force)
+
+    @classmethod
+    def delete_profile(cls, profile_name: str, force: bool = False):
+        """Class method to delete an AI profile from the database
+
+        :param str profile_name: Name of the AI profile
+        :param bool force: Ignores errors if AI profile does not exist.
+        :return: None
+        :raises: oracledb.DatabaseError
+        """
+        cls._delete(profile_name=profile_name, force=force)
 
     @classmethod
     def fetch(cls, profile_name: str) -> "Profile":
@@ -399,9 +414,7 @@ class Profile(BaseProfile):
         else:
             result = None
         if action == Action.RUNSQL:
-            if no_data_for_prompt(result):  # empty dataframe
-                return pandas.DataFrame()
-            return pandas.DataFrame(json.loads(result))
+            return convert_json_rows_to_df(result)
         else:
             return result
 

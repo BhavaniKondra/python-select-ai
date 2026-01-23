@@ -39,7 +39,9 @@ async def python_gen_ai_profile(profile_attributes):
     logger.debug("AsyncProfile = \n %s", profile)
     yield profile
     logger.info("Deleting async profile %s", profile.profile_name)
-    await profile.delete(force=True)
+    await AsyncProfile.delete_profile(
+        profile_name=PYSAI_ASYNC_1300_PROFILE, force=True
+    )
 
 
 @pytest.fixture(scope="module")

@@ -48,13 +48,12 @@ class ToolType(StrEnum):
     Built-in Tool Types
     """
 
-    EMAIL = "EMAIL"
     HUMAN = "HUMAN"
     HTTP = "HTTP"
     RAG = "RAG"
     SQL = "SQL"
-    SLACK = "SLACK"
     WEBSEARCH = "WEBSEARCH"
+    NOTIFICATION = "NOTIFICATION"
 
 
 @dataclass
@@ -103,6 +102,12 @@ class ToolParams(SelectAIDataClass):
     @classmethod
     def create(cls, *, tool_type: Optional[ToolType] = None, **kwargs):
         tool_params_cls = ToolTypeParams.get(tool_type, ToolParams)
+        if "notification_type" in kwargs:
+            notification_type = kwargs["notification_type"]
+            if notification_type == NotificationType.SLACK:
+                tool_params_cls = SlackNotificationToolParams
+            elif notification_type == NotificationType.EMAIL:
+                tool_params_cls = EmailNotificationToolParams
         return tool_params_cls(**kwargs)
 
     @classmethod
@@ -132,14 +137,20 @@ class RAGToolParams(ToolParams):
 
 
 @dataclass
-class SlackNotificationToolParams(ToolParams):
+class NotificationToolParams(ToolParams):
+
+    notification_type = NotificationType
+
+
+@dataclass
+class SlackNotificationToolParams(NotificationToolParams):
 
     _REQUIRED_FIELDS = ["credential_name", "slack_channel"]
     notification_type: NotificationType = NotificationType.SLACK
 
 
 @dataclass
-class EmailNotificationToolParams(ToolParams):
+class EmailNotificationToolParams(NotificationToolParams):
 
     _REQUIRED_FIELDS = ["credential_name", "recipient", "sender", "smtp_host"]
     notification_type: NotificationType = NotificationType.EMAIL
@@ -222,8 +233,7 @@ class ToolAttributes(SelectAIDataClass):
 
 
 ToolTypeParams = {
-    ToolType.EMAIL: EmailNotificationToolParams,
-    ToolType.SLACK: SlackNotificationToolParams,
+    ToolType.NOTIFICATION: NotificationToolParams,
     ToolType.HTTP: HTTPToolParams,
     ToolType.RAG: RAGToolParams,
     ToolType.SQL: SQLToolParams,
@@ -401,7 +411,7 @@ class Tool(_BaseTool):
         )
         return cls.create_built_in_tool(
             tool_name=tool_name,
-            tool_type=ToolType.EMAIL,
+            tool_type=ToolType.NOTIFICATION,
             tool_params=email_notification_tool_params,
             description=description,
             replace=replace,
@@ -534,7 +544,7 @@ class Tool(_BaseTool):
         )
         return cls.create_built_in_tool(
             tool_name=tool_name,
-            tool_type=ToolType.SLACK,
+            tool_type=ToolType.NOTIFICATION,
             tool_params=slack_notification_tool_params,
             description=description,
             replace=replace,
@@ -584,6 +594,17 @@ class Tool(_BaseTool):
                     "force": force,
                 },
             )
+
+    @classmethod
+    def delete_tool(cls, tool_name: str, force: bool = False):
+        """
+        Class method to delete AI Tool from the database
+
+        :param str tool_name: The name of the tool
+        :param bool force: Force the deletion. Default value is False.
+        """
+        tool = cls(tool_name=tool_name)
+        tool.delete(force=force)
 
     def disable(self):
         """
@@ -835,7 +856,7 @@ class AsyncTool(_BaseTool):
         )
         return await cls.create_built_in_tool(
             tool_name=tool_name,
-            tool_type=ToolType.EMAIL,
+            tool_type=ToolType.NOTIFICATION,
             tool_params=email_notification_tool_params,
             description=description,
             replace=replace,
@@ -968,7 +989,7 @@ class AsyncTool(_BaseTool):
         )
         return await cls.create_built_in_tool(
             tool_name=tool_name,
-            tool_type=ToolType.SLACK,
+            tool_type=ToolType.NOTIFICATION,
             tool_params=slack_notification_tool_params,
             description=description,
             replace=replace,
@@ -1018,6 +1039,17 @@ class AsyncTool(_BaseTool):
                     "force": force,
                 },
             )
+
+    @classmethod
+    async def delete_tool(cls, tool_name: str, force: bool = False):
+        """
+        Class method ot delete AI Tool from the database
+
+        :param str tool_name: The name of the tool
+        :param bool force: Force the deletion. Default value is False.
+        """
+        tool = cls(tool_name=tool_name)
+        await tool.delete(force=force)
 
     async def disable(self):
         """

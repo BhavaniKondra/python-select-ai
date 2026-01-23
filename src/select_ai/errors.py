@@ -123,3 +123,13 @@ class AgentTeamNotFoundError(SelectAIError):
 
     def __str__(self):
         return f"Agent Team {self.team_name} not found"
+
+
+class InvalidSQLError(SelectAIError):
+    """Invalid SQL generated"""
+
+    def __init__(self, error_message: str):
+        self.message = error_message
+
+    def __str__(self):
+        return self.message

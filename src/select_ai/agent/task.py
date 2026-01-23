@@ -188,6 +188,17 @@ class Task(BaseTask):
                 },
             )
 
+    @classmethod
+    def delete_task(cls, task_name: str, force: bool = False):
+        """
+        Class method to delete AI Task from the database
+
+        :param str task_name: The name of the AI Task
+        :param bool force: Force the deletion. Default value is False.
+        """
+        task = cls(task_name=task_name)
+        task.delete(force=force)
+
     def disable(self):
         """
         Disable AI Task
@@ -405,6 +416,17 @@ class AsyncTask(BaseTask):
                     "force": force,
                 },
             )
+
+    @classmethod
+    async def delete_task(cls, task_name: str, force: bool = False):
+        """
+        Class method to delete AI Task from the database
+
+        :param str task_name: The name of the AI Task
+        :param bool force: Force the deletion. Default value is False.
+        """
+        task = cls(task_name=task_name)
+        await task.delete(force=force)
 
     async def disable(self):
         """

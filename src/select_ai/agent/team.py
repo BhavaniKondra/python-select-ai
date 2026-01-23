@@ -57,10 +57,10 @@ class BaseTeam(ABC):
     def __init__(
         self,
         team_name: str,
-        attributes: TeamAttributes,
+        attributes: Optional[TeamAttributes] = None,
         description: Optional[str] = None,
     ):
-        if not isinstance(attributes, TeamAttributes):
+        if attributes and not isinstance(attributes, TeamAttributes):
             raise TypeError(
                 f"attributes must be an object of type  "
                 f"select_ai.agent.TeamAttributes instance"
@@ -179,6 +179,17 @@ class Team(BaseTeam):
                     "force": force,
                 },
             )
+
+    @classmethod
+    def delete_team(cls, team_name: str, force: Optional[bool] = False):
+        """
+        Class method to delete an AI agent team from the database
+
+        :param str team_name: The name of the AI team
+        :param bool force: Force the deletion. Default value is False.
+        """
+        team = cls(team_name=team_name)
+        team.delete(force=force)
 
     def disable(self):
         """
@@ -434,6 +445,17 @@ class AsyncTeam(BaseTeam):
                     "force": force,
                 },
             )
+
+    @classmethod
+    async def delete_team(cls, team_name: str, force: Optional[bool] = False):
+        """
+        Class method to delete an AI agent team from the database
+
+        :param str team_name: The name of the AI team
+        :param bool force: Force the deletion. Default value is False.
+        """
+        team = cls(team_name=team_name)
+        await team.delete(force=force)
 
     async def disable(self):
         """

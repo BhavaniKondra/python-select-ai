@@ -12,10 +12,11 @@ from dataclasses import replace as dataclass_replace
 from typing import List, Mapping, Optional, Tuple
 
 import oracledb
+import pandas
 
 from select_ai._abc import SelectAIDataClass
 from select_ai.action import Action
-from select_ai.errors import ProfileExistsError
+from select_ai.errors import InvalidSQLError, ProfileExistsError
 from select_ai.feedback import (
     FeedbackOperation,
     FeedbackType,
@@ -266,7 +267,7 @@ def validate_params_for_feedback(
             )
         sql_text = "select ai {} {}".format(action, prompt)
         parameters["sql_text"] = sql_text
-    elif sql_id:
+    if sql_id:
         parameters["sql_id"] = sql_id
     return parameters
 
@@ -298,3 +299,14 @@ def validate_params_for_summary(
     if params:
         parameters["parameters"] = params.json()
     return parameters
+
+
+def convert_json_rows_to_df(result):
+    if no_data_for_prompt(result):  # empty dataframe
+        return pandas.DataFrame()
+    try:
+        rows = json.loads(result)
+    except json.decoder.JSONDecodeError:
+        raise InvalidSQLError(result)
+    else:
+        return pandas.DataFrame(rows)
