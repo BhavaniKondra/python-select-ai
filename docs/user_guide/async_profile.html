@@ -5,21 +5,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1. AsyncProfile API &#8212; Select AI for Python 1.2.1 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. AsyncProfile API &#8212; Select AI for Python 1.2.2 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=67a6116b" />
     <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=4eb63a40" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=5349f25f" />
 
-    <script src="../_static/documentation_options.js?v=ca842793"></script>
+    <script src="../_static/documentation_options.js?v=fd7cadf9"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
 
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1. Conversation Object model" href="conversation.html" />
-    <link rel="prev" title="1. Profile Object Model" href="profile.html" /><link rel="stylesheet" href="../_static/pydoctheme_dark.css" media="(prefers-color-scheme: dark)" id="pydoctheme_dark_css">
+    <link rel="prev" title="Profile Object Model" href="profile.html" /><link rel="stylesheet" href="../_static/pydoctheme_dark.css" media="(prefers-color-scheme: dark)" id="pydoctheme_dark_css">
     <link rel="shortcut icon" type="image/png" href="../_static/py.svg">
             <script type="text/javascript" src="../_static/copybutton.js"></script>
             <script type="text/javascript" src="../_static/menu.js"></script>
@@ -72,6 +72,7 @@
 <li><a class="reference internal" href="#select_ai.AsyncProfile.create"><code class="docutils literal notranslate"><span class="pre">AsyncProfile.create()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.AsyncProfile.delete"><code class="docutils literal notranslate"><span class="pre">AsyncProfile.delete()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.AsyncProfile.delete_feedback"><code class="docutils literal notranslate"><span class="pre">AsyncProfile.delete_feedback()</span></code></a></li>
+<li><a class="reference internal" href="#select_ai.AsyncProfile.delete_profile"><code class="docutils literal notranslate"><span class="pre">AsyncProfile.delete_profile()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.AsyncProfile.explain_sql"><code class="docutils literal notranslate"><span class="pre">AsyncProfile.explain_sql()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.AsyncProfile.fetch"><code class="docutils literal notranslate"><span class="pre">AsyncProfile.fetch()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.AsyncProfile.generate"><code class="docutils literal notranslate"><span class="pre">AsyncProfile.generate()</span></code></a></li>
@@ -107,7 +108,7 @@
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="profile.html"
-                          title="previous chapter"><span class="section-number">1. </span>Profile Object Model</a></p>
+                          title="previous chapter">Profile Object Model</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
@@ -145,7 +146,7 @@
           <a href="conversation.html" title="1. Conversation Object model"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="profile.html" title="1. Profile Object Model"
+          <a href="profile.html" title="Profile Object Model"
              accesskey="P">previous</a> |</li>
           <li><img src="../_static/py.svg" alt="Python logo" style="vertical-align: middle; margin-top: -1px"></li>
           <li><a href="https://www.python.org/">Python</a> &#187;</li>
@@ -155,10 +156,10 @@
           </li>
           <li>
 
-              <a href="../index.html">Select AI for Python 1.2.1 documentation</a> &#187;
+              <a href="../index.html">Select AI for Python 1.2.2 documentation</a> &#187;
 
           </li>
-          <li class="nav-item nav-item-1"><a href="profile.html" accesskey="U"><span class="section-number">1. </span>Profile Object Model</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="profile.html" accesskey="U">Profile Object Model</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href=""><span class="section-number">1. </span><code class="docutils literal notranslate"><span class="pre">AsyncProfile</span></code> API</a></li>
                 <li class="right">
 
@@ -309,6 +310,26 @@ chat session</p></li>
 second is the corresponding action</p></li>
 <li><p><strong>sql_id</strong> (<em>str</em>) – SQL identifier from V$MAPPED_SQL view</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="select_ai.AsyncProfile.delete_profile">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">profile_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#select_ai.AsyncProfile.delete_profile" title="Link to this definition">¶</a></dt>
+<dd><p>Asynchronously deletes an AI profile from the database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>profile_name</strong> (<em>str</em>) – Name of the AI profile</p></li>
+<li><p><strong>force</strong> (<em>bool</em>) – Ignores errors if AI profile does not exist.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>oracledb.DatabaseError</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1106,6 +1127,7 @@ Result 3 for prompt &#39;Explain the query: SELECT * FROM sh.products&#39; is: O
 <li><a class="reference internal" href="#select_ai.AsyncProfile.create"><code class="docutils literal notranslate"><span class="pre">AsyncProfile.create()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.AsyncProfile.delete"><code class="docutils literal notranslate"><span class="pre">AsyncProfile.delete()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.AsyncProfile.delete_feedback"><code class="docutils literal notranslate"><span class="pre">AsyncProfile.delete_feedback()</span></code></a></li>
+<li><a class="reference internal" href="#select_ai.AsyncProfile.delete_profile"><code class="docutils literal notranslate"><span class="pre">AsyncProfile.delete_profile()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.AsyncProfile.explain_sql"><code class="docutils literal notranslate"><span class="pre">AsyncProfile.explain_sql()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.AsyncProfile.fetch"><code class="docutils literal notranslate"><span class="pre">AsyncProfile.fetch()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.AsyncProfile.generate"><code class="docutils literal notranslate"><span class="pre">AsyncProfile.generate()</span></code></a></li>
@@ -1141,7 +1163,7 @@ Result 3 for prompt &#39;Explain the query: SELECT * FROM sh.products&#39; is: O
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="profile.html"
-                          title="previous chapter"><span class="section-number">1. </span>Profile Object Model</a></p>
+                          title="previous chapter">Profile Object Model</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
@@ -1179,7 +1201,7 @@ Result 3 for prompt &#39;Explain the query: SELECT * FROM sh.products&#39; is: O
           <a href="conversation.html" title="1. Conversation Object model"
              >next</a> |</li>
         <li class="right" >
-          <a href="profile.html" title="1. Profile Object Model"
+          <a href="profile.html" title="Profile Object Model"
              >previous</a> |</li>
           <li><img src="../_static/py.svg" alt="Python logo" style="vertical-align: middle; margin-top: -1px"></li>
           <li><a href="https://www.python.org/">Python</a> &#187;</li>
@@ -1189,10 +1211,10 @@ Result 3 for prompt &#39;Explain the query: SELECT * FROM sh.products&#39; is: O
           </li>
           <li>
 
-              <a href="../index.html">Select AI for Python 1.2.1 documentation</a> &#187;
+              <a href="../index.html">Select AI for Python 1.2.2 documentation</a> &#187;
 
           </li>
-          <li class="nav-item nav-item-1"><a href="profile.html" ><span class="section-number">1. </span>Profile Object Model</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="profile.html" >Profile Object Model</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href=""><span class="section-number">1. </span><code class="docutils literal notranslate"><span class="pre">AsyncProfile</span></code> API</a></li>
                 <li class="right">
 

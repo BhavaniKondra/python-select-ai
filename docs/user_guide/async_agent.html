@@ -5,14 +5,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6.1. AsyncTool &#8212; Select AI for Python 1.2.1 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.1. AsyncTool &#8212; Select AI for Python 1.2.2 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=67a6116b" />
     <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css?v=4eb63a40" />
     <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=5349f25f" />
 
-    <script src="../_static/documentation_options.js?v=ca842793"></script>
+    <script src="../_static/documentation_options.js?v=fd7cadf9"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
 
@@ -72,6 +72,7 @@
 <li><a class="reference internal" href="#select_ai.agent.AsyncTool.create_sql_tool"><code class="docutils literal notranslate"><span class="pre">AsyncTool.create_sql_tool()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTool.create_websearch_tool"><code class="docutils literal notranslate"><span class="pre">AsyncTool.create_websearch_tool()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTool.delete"><code class="docutils literal notranslate"><span class="pre">AsyncTool.delete()</span></code></a></li>
+<li><a class="reference internal" href="#select_ai.agent.AsyncTool.delete_tool"><code class="docutils literal notranslate"><span class="pre">AsyncTool.delete_tool()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTool.disable"><code class="docutils literal notranslate"><span class="pre">AsyncTool.disable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTool.enable"><code class="docutils literal notranslate"><span class="pre">AsyncTool.enable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTool.fetch"><code class="docutils literal notranslate"><span class="pre">AsyncTool.fetch()</span></code></a></li>
@@ -88,6 +89,7 @@
 <li><a class="reference internal" href="#select_ai.agent.AsyncTask"><code class="docutils literal notranslate"><span class="pre">AsyncTask</span></code></a><ul>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTask.create"><code class="docutils literal notranslate"><span class="pre">AsyncTask.create()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTask.delete"><code class="docutils literal notranslate"><span class="pre">AsyncTask.delete()</span></code></a></li>
+<li><a class="reference internal" href="#select_ai.agent.AsyncTask.delete_task"><code class="docutils literal notranslate"><span class="pre">AsyncTask.delete_task()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTask.disable"><code class="docutils literal notranslate"><span class="pre">AsyncTask.disable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTask.enable"><code class="docutils literal notranslate"><span class="pre">AsyncTask.enable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTask.fetch"><code class="docutils literal notranslate"><span class="pre">AsyncTask.fetch()</span></code></a></li>
@@ -104,6 +106,7 @@
 <li><a class="reference internal" href="#select_ai.agent.AsyncAgent"><code class="docutils literal notranslate"><span class="pre">AsyncAgent</span></code></a><ul>
 <li><a class="reference internal" href="#select_ai.agent.AsyncAgent.create"><code class="docutils literal notranslate"><span class="pre">AsyncAgent.create()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncAgent.delete"><code class="docutils literal notranslate"><span class="pre">AsyncAgent.delete()</span></code></a></li>
+<li><a class="reference internal" href="#select_ai.agent.AsyncAgent.delete_agent"><code class="docutils literal notranslate"><span class="pre">AsyncAgent.delete_agent()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncAgent.disable"><code class="docutils literal notranslate"><span class="pre">AsyncAgent.disable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncAgent.enable"><code class="docutils literal notranslate"><span class="pre">AsyncAgent.enable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncAgent.fetch"><code class="docutils literal notranslate"><span class="pre">AsyncAgent.fetch()</span></code></a></li>
@@ -120,6 +123,7 @@
 <li><a class="reference internal" href="#select_ai.agent.AsyncTeam"><code class="docutils literal notranslate"><span class="pre">AsyncTeam</span></code></a><ul>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTeam.create"><code class="docutils literal notranslate"><span class="pre">AsyncTeam.create()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTeam.delete"><code class="docutils literal notranslate"><span class="pre">AsyncTeam.delete()</span></code></a></li>
+<li><a class="reference internal" href="#select_ai.agent.AsyncTeam.delete_team"><code class="docutils literal notranslate"><span class="pre">AsyncTeam.delete_team()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTeam.disable"><code class="docutils literal notranslate"><span class="pre">AsyncTeam.disable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTeam.enable"><code class="docutils literal notranslate"><span class="pre">AsyncTeam.enable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTeam.fetch"><code class="docutils literal notranslate"><span class="pre">AsyncTeam.fetch()</span></code></a></li>
@@ -183,7 +187,7 @@
           </li>
           <li>
 
-              <a href="../index.html">Select AI for Python 1.2.1 documentation</a> &#187;
+              <a href="../index.html">Select AI for Python 1.2.2 documentation</a> &#187;
 
           </li>
           <li class="nav-item nav-item-1"><a href="agent.html" accesskey="U"><span class="section-number">1. </span><code class="docutils literal notranslate"><span class="pre">Tool</span></code></a> &#187;</li>
@@ -219,6 +223,83 @@
 
   <p id="async-agent"><code class="docutils literal notranslate"><span class="pre">select_ai.agent</span></code> also provides async interfaces to be used with
 <code class="docutils literal notranslate"><span class="pre">async</span></code> / <code class="docutils literal notranslate"><span class="pre">await</span></code> keywords</p>
+<table class="docutils align-left" id="id1">
+<caption><span class="caption-text">Select AI Async Agent Tools</span><a class="headerlink" href="#id1" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 50.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tool Type</p></th>
+<th class="head"><p>AsyncTool Class Method</p></th>
+<th class="head"><p>Arguments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">EMAIL</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">select_ai.agent.AsyncTool.create_email_notification_tool</span></code></p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tool_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">credential_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">recipient</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sender</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">smtp_host</span></code></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">HTTP</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">select_ai.agent.AsyncTool.create_http_tool</span></code></p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tool_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">credential_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">endpoint</span></code></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SQL</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">select_ai.agent.AsyncTool.create_sql_tool</span></code></p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tool_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">profile_name</span></code></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SLACK</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">select_ai.agent.AsyncTool.create_slack_notification_tool</span></code></p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tool_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">credential_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slack_channel</span></code></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WEBSEARCH</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">select_ai.agent.AsyncTool.create_websearch_tool</span></code></p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tool_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">credential_name</span></code></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PL/SQL</span> <span class="pre">custom</span> <span class="pre">tool</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">select_ai.agent.AsyncTool.create_pl_sql_tool</span></code></p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tool_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">function</span></code></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RAG</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">select_ai.agent.AsyncTool.create_rag_tool</span></code></p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tool_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">profile_name</span></code></p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <section id="asynctool">
 <h1><span class="section-number">6.1. </span><code class="docutils literal notranslate"><span class="pre">AsyncTool</span></code><a class="headerlink" href="#asynctool" title="Link to this heading">¶</a></h1>
 <dl class="py class">
@@ -364,6 +445,20 @@ storing OpenAI credentials</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>force</strong> (<em>bool</em>) – Force the deletion. Default value is False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="select_ai.agent.AsyncTool.delete_tool">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete_tool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tool_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#select_ai.agent.AsyncTool.delete_tool" title="Link to this definition">¶</a></dt>
+<dd><p>Class method ot delete AI Tool from the database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tool_name</strong> (<em>str</em>) – The name of the tool</p></li>
+<li><p><strong>force</strong> (<em>bool</em>) – Force the deletion. Default value is False.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -578,6 +673,20 @@ Default value is False.</p></li>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="select_ai.agent.AsyncTask.delete_task">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#select_ai.agent.AsyncTask.delete_task" title="Link to this definition">¶</a></dt>
+<dd><p>Class method to delete AI Task from the database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>task_name</strong> (<em>str</em>) – The name of the AI Task</p></li>
+<li><p><strong>force</strong> (<em>bool</em>) – Force the deletion. Default value is False.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="select_ai.agent.AsyncTask.disable">
 <em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">disable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#select_ai.agent.AsyncTask.disable" title="Link to this definition">¶</a></dt>
 <dd><p>Disable AI Task</p>
@@ -773,6 +882,20 @@ Default value is False.</p></li>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="select_ai.agent.AsyncAgent.delete_agent">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete_agent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">agent_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#select_ai.agent.AsyncAgent.delete_agent" title="Link to this definition">¶</a></dt>
+<dd><p>Class method to delete AI Agent from the database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>agent_name</strong> (<em>str</em>) – The name of the AI Agent</p></li>
+<li><p><strong>force</strong> (<em>bool</em>) – Force the deletion. Default value is False.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="select_ai.agent.AsyncAgent.disable">
 <em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">disable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#select_ai.agent.AsyncAgent.disable" title="Link to this definition">¶</a></dt>
 <dd><p>Disable AI Agent</p>
@@ -913,7 +1036,7 @@ can be specified by passing an AgentAttributes object</p>
 <h1><span class="section-number">6.4. </span>AsyncTeam<a class="headerlink" href="#asyncteam" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="select_ai.agent.AsyncTeam">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">select_ai.agent.</span></span><span class="sig-name descname"><span class="pre">AsyncTeam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">team_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="agent.html#select_ai.agent.TeamAttributes" title="select_ai.agent.team.TeamAttributes"><span class="pre">TeamAttributes</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#select_ai.agent.AsyncTeam" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">select_ai.agent.</span></span><span class="sig-name descname"><span class="pre">AsyncTeam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">team_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="agent.html#select_ai.agent.TeamAttributes" title="select_ai.agent.team.TeamAttributes"><span class="pre">TeamAttributes</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#select_ai.agent.AsyncTeam" title="Link to this definition">¶</a></dt>
 <dd><p>A Team of AI agents work together to accomplish tasks
 select_ai.agent.Team class lets you create, delete, enable, disable and
 list AI Tasks.</p>
@@ -949,6 +1072,20 @@ Default value is False.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>force</strong> (<em>bool</em>) – Force the deletion. Default value is False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="select_ai.agent.AsyncTeam.delete_team">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete_team</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">team_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#select_ai.agent.AsyncTeam.delete_team" title="Link to this definition">¶</a></dt>
+<dd><p>Class method to delete an AI agent team from the database</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>team_name</strong> (<em>str</em>) – The name of the AI team</p></li>
+<li><p><strong>force</strong> (<em>bool</em>) – Force the deletion. Default value is False.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -1317,6 +1454,7 @@ intelligence research and development. OpenAI focuses on creating and
 <li><a class="reference internal" href="#select_ai.agent.AsyncTool.create_sql_tool"><code class="docutils literal notranslate"><span class="pre">AsyncTool.create_sql_tool()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTool.create_websearch_tool"><code class="docutils literal notranslate"><span class="pre">AsyncTool.create_websearch_tool()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTool.delete"><code class="docutils literal notranslate"><span class="pre">AsyncTool.delete()</span></code></a></li>
+<li><a class="reference internal" href="#select_ai.agent.AsyncTool.delete_tool"><code class="docutils literal notranslate"><span class="pre">AsyncTool.delete_tool()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTool.disable"><code class="docutils literal notranslate"><span class="pre">AsyncTool.disable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTool.enable"><code class="docutils literal notranslate"><span class="pre">AsyncTool.enable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTool.fetch"><code class="docutils literal notranslate"><span class="pre">AsyncTool.fetch()</span></code></a></li>
@@ -1333,6 +1471,7 @@ intelligence research and development. OpenAI focuses on creating and
 <li><a class="reference internal" href="#select_ai.agent.AsyncTask"><code class="docutils literal notranslate"><span class="pre">AsyncTask</span></code></a><ul>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTask.create"><code class="docutils literal notranslate"><span class="pre">AsyncTask.create()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTask.delete"><code class="docutils literal notranslate"><span class="pre">AsyncTask.delete()</span></code></a></li>
+<li><a class="reference internal" href="#select_ai.agent.AsyncTask.delete_task"><code class="docutils literal notranslate"><span class="pre">AsyncTask.delete_task()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTask.disable"><code class="docutils literal notranslate"><span class="pre">AsyncTask.disable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTask.enable"><code class="docutils literal notranslate"><span class="pre">AsyncTask.enable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTask.fetch"><code class="docutils literal notranslate"><span class="pre">AsyncTask.fetch()</span></code></a></li>
@@ -1349,6 +1488,7 @@ intelligence research and development. OpenAI focuses on creating and
 <li><a class="reference internal" href="#select_ai.agent.AsyncAgent"><code class="docutils literal notranslate"><span class="pre">AsyncAgent</span></code></a><ul>
 <li><a class="reference internal" href="#select_ai.agent.AsyncAgent.create"><code class="docutils literal notranslate"><span class="pre">AsyncAgent.create()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncAgent.delete"><code class="docutils literal notranslate"><span class="pre">AsyncAgent.delete()</span></code></a></li>
+<li><a class="reference internal" href="#select_ai.agent.AsyncAgent.delete_agent"><code class="docutils literal notranslate"><span class="pre">AsyncAgent.delete_agent()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncAgent.disable"><code class="docutils literal notranslate"><span class="pre">AsyncAgent.disable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncAgent.enable"><code class="docutils literal notranslate"><span class="pre">AsyncAgent.enable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncAgent.fetch"><code class="docutils literal notranslate"><span class="pre">AsyncAgent.fetch()</span></code></a></li>
@@ -1365,6 +1505,7 @@ intelligence research and development. OpenAI focuses on creating and
 <li><a class="reference internal" href="#select_ai.agent.AsyncTeam"><code class="docutils literal notranslate"><span class="pre">AsyncTeam</span></code></a><ul>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTeam.create"><code class="docutils literal notranslate"><span class="pre">AsyncTeam.create()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTeam.delete"><code class="docutils literal notranslate"><span class="pre">AsyncTeam.delete()</span></code></a></li>
+<li><a class="reference internal" href="#select_ai.agent.AsyncTeam.delete_team"><code class="docutils literal notranslate"><span class="pre">AsyncTeam.delete_team()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTeam.disable"><code class="docutils literal notranslate"><span class="pre">AsyncTeam.disable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTeam.enable"><code class="docutils literal notranslate"><span class="pre">AsyncTeam.enable()</span></code></a></li>
 <li><a class="reference internal" href="#select_ai.agent.AsyncTeam.fetch"><code class="docutils literal notranslate"><span class="pre">AsyncTeam.fetch()</span></code></a></li>
@@ -1428,7 +1569,7 @@ intelligence research and development. OpenAI focuses on creating and
           </li>
           <li>
 
-              <a href="../index.html">Select AI for Python 1.2.1 documentation</a> &#187;
+              <a href="../index.html">Select AI for Python 1.2.2 documentation</a> &#187;
 
           </li>
           <li class="nav-item nav-item-1"><a href="agent.html" ><span class="section-number">1. </span><code class="docutils literal notranslate"><span class="pre">Tool</span></code></a> &#187;</li>

@@ -72,11 +72,6 @@ Python layer and persist the tool in the Database using
       - - ``tool_name``
         - ``profile_name``
 
-.. note::
-
-   Use ``select_ai.agent.AsyncTool.create_<tool>`` for corresponding async
-   methods. For e.g. ``await select_ai.agent.AsyncTool.create_rag_tool()``
-   can be used to create an RAG tool in an async application.
 
 .. latex:clearpage::
 
